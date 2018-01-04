@@ -1,0 +1,36 @@
+body{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#quote-box{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: grey;
+	height: 40%;
+	width: 40%;
+	border-radius: 45% 0;
+	padding: 2.5%;
+}
+
+p{
+	padding-left: 10%;
+	padding-right: 10%;
+	text-align: justify;
+}
+
+#random{
+	background-color: white;
+	align-self: flex-end;
+}
+
+#tweet{
+	align-self: flex-start;
+	color: white;
+}
