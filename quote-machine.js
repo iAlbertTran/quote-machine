@@ -1,4 +1,4 @@
-var URL = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=setQuote";
+var URL = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=setQuote";
 //var data = $.getJSON(URL, data);
 
 //sets up the quote box on page load
