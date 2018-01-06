@@ -5,16 +5,18 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin: 0;
 }
 
 #quote-box{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	background-color: grey;
 	min-height: 40%;
 	width: 40%;
+	min-width: 200px;
 	padding: 2.5%;
 	border-radius: 10% 10% 10% 0;
 }

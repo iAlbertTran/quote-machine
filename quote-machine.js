@@ -4,16 +4,17 @@ var URL = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[
 //sets up the quote box on page load
 window.onload = function setUp(){
 
-	var quoteBox = document.getElementById("quote-box");
-	var rect = quoteBox.getBoundingClientRect();
-	var arrow = document.getElementById("arrow");
-	arrow.style.top = rect.bottom + "px";
-	arrow.style.left = rect.left + "px";
-
 	var script = document.createElement("script");
 	script.type = 'text/javascript';
 	script.src = URL + "&" + Math.random().toString(16);
 	document.body.appendChild(script);
+
+	var quoteBox = document.getElementById("quote-box");
+	var rect = quoteBox.getBoundingClientRect();
+	var arrow = document.getElementById("arrow");
+	arrow.style.top = rect.bottom - 20 + "px";
+	arrow.style.left = rect.left + "px";
+	
 	twitterButton();
 };
 
@@ -23,7 +24,6 @@ window.onresize = function adjust(){
 	var rect = quoteBox.getBoundingClientRect();
 	var arrow = document.getElementById("arrow");
 
-	//minus 5 and plus 8 px respectively to get the arrow at the very bottom right corner 
 	arrow.style.top = rect.bottom + "px";
 	arrow.style.left = rect.left + "px";
 }
@@ -39,10 +39,8 @@ function setQuote(data){
 	string.splice(1,2,"em>\"");
 	string.splice(string.length-5, 3, "\"<em");
 	quote.innerHTML = string.join("");
-
-	//insert quote in middle
-	var tweetButton = document.getElementById("tweet");
-	quoteBox.insertBefore(quote, tweetButton);
+	
+	quoteBox.appendChild(quote);
 
 	//creates div for name of author behind quote
 	var author = document.createElement("div");
