@@ -2,8 +2,8 @@ body{
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
 	align-items: center;
 	margin: 0;
 }
@@ -16,7 +16,7 @@ body{
 	background-color: grey;
 	min-height: 40%;
 	width: 40%;
-	min-width: 200px;
+	min-width: 150px;
 	padding: 2.5%;
 	border-radius: 10% 10% 10% 0;
 }
@@ -26,8 +26,6 @@ body{
 	position: absolute;
 	border-color: grey transparent;
 	border-width: 50px 50px 0 0;
-	bottom: 23.7%;
-	left: 25%;
 }
 
 #quote{
@@ -48,18 +46,12 @@ body{
 	align-self: center;
 }
 
-#random{
-	background-color: white;
-	align-self: flex-end;
-}
-
 #tweet{
-	align-self: flex-start;
-	color: white;
-	margin-left: 10%;
+	color: blue;
+	position: absolute;
 }
 
-#random{
+
+#prev, #next{
 	border: none;
-	margin-right: 10%;
 }
