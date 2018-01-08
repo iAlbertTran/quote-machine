@@ -95,6 +95,8 @@ function nextQuote(){
 		var author = document.createElement("author");
 		author.id = "author";
 		author.innerHTML = authorBank[currentQuote + 1];
+		
+		quote.appendChild(author);
 
 		currentQuote += 1;
 
