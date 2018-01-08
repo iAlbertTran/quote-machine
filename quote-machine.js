@@ -75,17 +75,17 @@ function nextQuote(){
 	var prevQuoteButton = document.getElementById("prev");
 	prevQuoteButton.style.visibility = "visible";
 
-	if(currentQuote == quoteBank.length){
-	document.body.removeChild(document.body.lastChild);
+	if(currentQuote == quoteBank.length - 1){
+		document.body.removeChild(document.body.lastChild);
 
-	var quoteBox = document.getElementById("quote-box");
-	quoteBox.removeChild(document.getElementById("quote"));
-    
+		var quoteBox = document.getElementById("quote-box");
+		quoteBox.removeChild(document.getElementById("quote"));
+		
 
-	var script = document.createElement("script");
-	script.type = 'text/javascript';
-	script.src = URL + "&" + Math.random().toString(16);
-	document.body.appendChild(script);
+		var script = document.createElement("script");
+		script.type = 'text/javascript';
+		script.src = URL + "&" + Math.random().toString(16);
+		document.body.appendChild(script);
 	}
 
 	else{
@@ -98,7 +98,7 @@ function nextQuote(){
 
 		currentQuote += 1;
 
-		if(currentQuote == quoteBank.length){
+		if(currentQuote == quoteBank.length - 1){
 			var nextQuoteButton = document.getElementById("next");
 			nextQuoteButton.innerHTML = "New Quote";
 		}
