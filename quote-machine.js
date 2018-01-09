@@ -36,9 +36,7 @@ window.onresize = function adjust(){
 
 //callback function from JSONP
 function setQuote(data){
-	var quoteBox = document.getElementById("quote-box");
-	var quote = document.createElement("div");
-	quote.id = "quote";
+	var quote = document.getElementById("quote");
 
 	var string = data[0].content.split("");
 	//replace "<p>" at the beginning and end of the string with "<em>" and double quotes.
@@ -46,14 +44,16 @@ function setQuote(data){
 	string.splice(string.length-5, 3, "\"<em");
 	quote.innerHTML = string.join("");
 	quoteBank.push(string.join(""));
-	quoteBox.appendChild(quote);
 
 	//creates div for name of author behind quote
-	var author = document.createElement("div");
-	author.id = "author";
+	var author = document.createElement("author");
 	author.innerHTML = data[0].title;
+	author.id = "author";
+
 	quote.appendChild(author);
+
 	authorBank.push(data[0].title);
+
 	currentQuote += 1;
 }
 
@@ -76,12 +76,6 @@ function nextQuote(){
 	prevQuoteButton.style.visibility = "visible";
 
 	if(currentQuote == quoteBank.length - 1){
-		document.body.removeChild(document.body.lastChild);
-
-		var quoteBox = document.getElementById("quote-box");
-		quoteBox.removeChild(document.getElementById("quote"));
-		
-
 		var script = document.createElement("script");
 		script.type = 'text/javascript';
 		script.src = URL + "&" + Math.random().toString(16);
@@ -105,6 +99,7 @@ function nextQuote(){
 			nextQuoteButton.innerHTML = "New Quote";
 		}
 	}
+	changeColor();
 }
 
 
@@ -112,6 +107,7 @@ function nextQuote(){
 function prevQuote(){
 	var nextQuoteButton = document.getElementById("next");
 	nextQuoteButton.style.visibility = "visible";
+	nextQuoteButton.innerHTML = "Next Quote";
 
 	var quote = document.getElementById("quote");
 	quote.innerHTML = quoteBank[currentQuote - 1];
@@ -129,6 +125,20 @@ function prevQuote(){
 		var previousQuoteButton = document.getElementById("prev");
 		prev.style.visibility = "hidden";
 	}
+	changeColor();
 
+}
 
+function changeColor(){
+	var redVal = Math.floor((Math.random() * 255) + 1);
+	var greenVal = Math.floor((Math.random() * 255) + 1);
+	var blueVal = Math.floor((Math.random() * 255) + 1);
+
+	var rgb = "rgb(" + redVal + "," + greenVal + "," + blueVal + ")";
+
+	var quoteBox = document.getElementById("quote-box");
+	var arrow = document.getElementById("arrow");
+
+	quoteBox.style.backgroundColor = rgb;
+	arrow.style.borderColor = rgb + " transparent";
 }
