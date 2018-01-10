@@ -55,6 +55,7 @@ function setQuote(data){
 	authorBank.push(data[0].title);
 
 	currentQuote += 1;
+	setTweet();
 }
 
 //creates the tweet button
@@ -141,4 +142,25 @@ function changeColor(){
 
 	quoteBox.style.backgroundColor = rgb;
 	arrow.style.borderColor = rgb + " transparent";
+}
+
+function alertT(){
+	alert(1);
+	return;
+}
+
+//sets the href for the anchor link on the twitter icon to tweet out the quote being presented
+function setTweet(){
+
+	//removes the em tag from the quote stored in quoteBank
+	var thisQuote = quoteBank[currentQuote];
+	var thisQuote = thisQuote.split("");
+	thisQuote.splice(0,4);
+	thisQuote.splice(thisQuote.length-5, 4);
+	thisQuote = thisQuote.join("").replace(/\s/g, '%20');
+	thisQuote = thisQuote.replace(/&#8217;/, '\'');
+	var thisAuthor = authorBank[currentQuote];
+	var tweetURL = "https://twitter.com/intent/tweet?text=" + thisQuote + thisAuthor + "&hashtags=quote,design-quotes,freeCodeCamp,quote-machine";
+	var tweetAnchor = document.getElementById("tweetAnchor");
+	tweetAnchor.setAttribute("href", tweetURL);
 }

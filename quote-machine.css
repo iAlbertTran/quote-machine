@@ -60,6 +60,7 @@ body{
 	border: none;
 	height: 100%;
 	width: 5%;
+	min-width: 75px;
 	background-color: #00aced; 
 }
 
