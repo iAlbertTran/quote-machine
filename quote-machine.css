@@ -13,23 +13,23 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: tomato;
+	background-color: white;
 	min-height: 40%;
 	width: 40%;
 	min-width: 150px;
 	padding: 2.5%;
 	border-radius: 10% 10% 10% 0;
 	transition-property: background-color;
-	transition-duration: 2s;
+	transition-duration: 1s;
 }
 
 #arrow{
 	border-style: solid;
 	position: absolute;
-	border-color: rgb(255, 99, 71) transparent;
+	border-color: white transparent;
 	border-width: 50px 50px 0 0;
 	transition-property: border-color;
-	transition-duration: 2s;
+	transition-duration: 1s;
 }
 
 #quote{
@@ -61,9 +61,23 @@ body{
 	height: 100%;
 	width: 5%;
 	min-width: 75px;
-	background-color: #00aced; 
+	background-color: white; 
+	transition-property: height, background-color;
+	transition-duration: 1s;
 }
 
 #prev{
 	visibility: hidden;
+}
+
+#footer{
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 1%;
+	width: 100%;
+	text-align: center;
+}
+
+#sourceCode{
+	text-decoration: none;
 }

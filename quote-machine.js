@@ -19,6 +19,7 @@ window.onload = function setUp(){
 	arrow.style.left = rect.left + "px";
 	
 	twitterButtonPosition();
+	changeColor();
 };
 
 //adjust the position of the speach bubble arrow
@@ -75,6 +76,7 @@ function nextQuote(){
 
 	var prevQuoteButton = document.getElementById("prev");
 	prevQuoteButton.style.visibility = "visible";
+	prevQuoteButton.style.height = 100 + "%";
 
 	if(currentQuote == quoteBank.length - 1){
 		var script = document.createElement("script");
@@ -101,6 +103,7 @@ function nextQuote(){
 		}
 	}
 	changeColor();
+	setTweet();
 }
 
 
@@ -108,6 +111,7 @@ function nextQuote(){
 function prevQuote(){
 	var nextQuoteButton = document.getElementById("next");
 	nextQuoteButton.style.visibility = "visible";
+
 	nextQuoteButton.innerHTML = "Next Quote";
 
 	var quote = document.getElementById("quote");
@@ -122,11 +126,15 @@ function prevQuote(){
 
 	currentQuote -= 1;
 
+
+	changeColor();
+	setTweet();
+
 	if(currentQuote == 0){
 		var previousQuoteButton = document.getElementById("prev");
-		prev.style.visibility = "hidden";
+		previousQuoteButton.style.height = 0;
+		setTimeout(function () {previousQuoteButton.style.visibility = "hidden"}, 1000);
 	}
-	changeColor();
 
 }
 
@@ -142,12 +150,14 @@ function changeColor(){
 
 	quoteBox.style.backgroundColor = rgb;
 	arrow.style.borderColor = rgb + " transparent";
+
+	var nextQuoteBtn = document.getElementById("next");
+	var prevQuoteBtn = document.getElementById("prev");
+
+	nextQuoteBtn.style.backgroundColor = rgb;
+	prevQuoteBtn.style.backgroundColor = rgb;
 }
 
-function alertT(){
-	alert(1);
-	return;
-}
 
 //sets the href for the anchor link on the twitter icon to tweet out the quote being presented
 function setTweet(){
@@ -159,6 +169,7 @@ function setTweet(){
 	thisQuote.splice(thisQuote.length-5, 4);
 	thisQuote = thisQuote.join("").replace(/\s/g, '%20');
 	thisQuote = thisQuote.replace(/&#8217;/, '\'');
+
 	var thisAuthor = authorBank[currentQuote];
 	var tweetURL = "https://twitter.com/intent/tweet?text=" + thisQuote + thisAuthor + "&hashtags=quote,design-quotes,freeCodeCamp,quote-machine";
 	var tweetAnchor = document.getElementById("tweetAnchor");
