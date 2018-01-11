@@ -73,11 +73,12 @@ body{
 #footer{
 	position: absolute;
 	bottom: 0;
-	margin-bottom: 1%;
-	width: 100%;
+	padding: 0 25% 1% 25%;
+	width: 50%;
 	text-align: center;
 }
 
 #sourceCode{
 	text-decoration: none;
 }
+

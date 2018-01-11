@@ -76,6 +76,7 @@ function nextQuote(){
 
 	var prevQuoteButton = document.getElementById("prev");
 	prevQuoteButton.style.visibility = "visible";
+	prevQuoteButton.innerHTML = "Previous Quote";
 	prevQuoteButton.style.height = 100 + "%";
 
 	if(currentQuote == quoteBank.length - 1){
@@ -133,6 +134,7 @@ function prevQuote(){
 	if(currentQuote == 0){
 		var previousQuoteButton = document.getElementById("prev");
 		previousQuoteButton.style.height = 0;
+		previousQuoteButton.innerHTML = "";
 		setTimeout(function () {previousQuoteButton.style.visibility = "hidden"}, 1000);
 	}
 
